@@ -1,3 +1,19 @@
-h1 {
-  color: yellow;
+body {
+  background-color: gray;
+}
+
+.widget {
+  position: absolute;
+  width: 300px;
+  height: auto;
+  border: black 2px solid;
+}
+
+.timer-controls {
+  display: flex;
+  justify-content: space-between;
+}
+
+.time-input {
+  width: 25px;
 }
