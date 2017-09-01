@@ -7,7 +7,6 @@
           rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="./style.css">
     <title>FCC Pomodoro Timer - JDOS</title>
-    <script src="./scripts.js"></script>
 </head>
 <body>
 
@@ -21,7 +20,7 @@
       <div class=interface>
         <p>Break Time</p><br>
         <button>-</button>
-        <input class=time-input id=break-time value="5"></input>
+        <input class=time-input id=break-time value="2"></input>
         <button>+</button>
       </div>
 
@@ -29,14 +28,14 @@
       <div>
         <p>Work Time</p><br>
         <button>-</button>
-        <input class=time-input id=break-time value="25"></input>
+        <input class=time-input id=work-time value="1"></input>
         <button>+</button>
       </div>
 
     </div>
 
     <!-- timer display -->
-    <div>
+    <div class=timer id=timer-display>
     </div>
 
     <!-- start button -->
@@ -46,4 +45,5 @@
   </div>
 
 <body>
+<script src="./scripts.js"></script>
 </html>
