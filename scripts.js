@@ -15,39 +15,39 @@ function getTime(userInput) {
 //work time countdown
 function workCountdown() {
   if (workTime == undefined) {
-    workTime = getTime(document.getElementById('work-time').value)
+    workTime = getTime(document.getElementById('work-time').innerHTML)
   }
   workTime.setSeconds(workTime.getSeconds() - 1)
   timeRemaining = workTime.toISOString().substr(11, 8)
-  var switchValue = getTime("0");
-  if (workTime.toISOString().substr(11, 8) === switchValue.toISOString().substr(11, 8)) {
+  timeDisplay.innerHTML = timeRemaining
+  if (timeDisplay.innerHTML == "00:00:00") {
     working = false;
   } else {
     working = true;
   }
-  if (working = true) {
-    timeDisplay.innerHTML = timeRemaining
+  if (working == false) {
+    workTime = getTime(document.getElementById('work-time').innerHTMl)
   }
-  console.log(working)
+  console.log("working")
 }
 
 //break time countdown
 function breakCountdown() {
   if (breakTime == undefined) {
-    breakTime = getTime(document.getElementById('break-time').value)
+    breakTime = getTime(document.getElementById('break-time').innerHTML)
   }
   breakTime.setSeconds(breakTime.getSeconds() - 1)
   timeRemaining = breakTime.toISOString().substr(11, 8)
-  var switchValue = getTime("0");
-  if (workTime.toISOString().substr(11, 8) === switchValue.toISOString().substr(11, 8)) {
+  timeDisplay.innerHTML = timeRemaining
+  if (timeDisplay.innerHTML == "00:00:00") {
     working = true;
   } else {
     working = false;
   }
-  if (working = true) {
-    timeDisplay.innerHTML = timeRemaining
+  if (working == true) {
+    breakTime = getTime(document.getElementById('break-time').innerHTML)
   }
-  console.log(working)
+  console.log("taking a break")
 }
 
 //primary countdown function
@@ -61,5 +61,29 @@ function runTimer() {
   }
 }
 
-working = true;
-setInterval(runTimer, 1000)
+document.getElementById('break-id-minus').addEventListener("click", function () {
+  if (document.getElementById('break-time').innerHTML > 1) {
+    document.getElementById('break-time').innerHTML -= 1;
+  }
+})
+
+document.getElementById('break-id-plus').addEventListener("click", function () {
+  document.getElementById('break-time').innerHTML =
+  parseInt(document.getElementById('break-time').innerHTML, 10) + 1;
+})
+
+document.getElementById('work-id-minus').addEventListener("click", function () {
+  if (document.getElementById('work-time').innerHTML > 1) {
+    document.getElementById('work-time').innerHTML -= 1;
+  }
+})
+
+document.getElementById('work-id-plus').addEventListener("click", function () {
+  document.getElementById('work-time').innerHTML =
+  parseInt(document.getElementById('work-time').innerHTML, 10) + 1;
+})
+
+document.getElementById('start-btn').addEventListener("click", function () {
+  working = true;
+  setInterval(runTimer, 1000)
+})

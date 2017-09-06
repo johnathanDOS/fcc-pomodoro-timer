@@ -12,8 +12,23 @@ body {
 .timer-controls {
   display: flex;
   justify-content: space-between;
+  align-items:
 }
 
 .time-input {
   width: 25px;
+}
+
+.timer {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.btn-container {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
 }

@@ -17,19 +17,19 @@
     <div class=timer-controls>
 
       <!-- break time ui -->
-      <div class=interface>
+      <div>
         <p>Break Time</p><br>
-        <button>-</button>
-        <input class=time-input id=break-time value="2"></input>
-        <button>+</button>
+        <button id=break-id-minus>-</button>
+        <span class=time-input id=break-time>2</span>
+        <button id=break-id-plus>+</button>
       </div>
 
       <!-- work time ui -->
       <div>
         <p>Work Time</p><br>
-        <button>-</button>
-        <input class=time-input id=work-time value="1"></input>
-        <button>+</button>
+        <button id=work-id-minus>-</button>
+        <span class=time-input id=work-time>1</span>
+        <button id=work-id-plus>+</button>
       </div>
 
     </div>
@@ -39,7 +39,8 @@
     </div>
 
     <!-- start button -->
-    <div>
+    <div class=btn-container>
+      <button class=action-btn id=start-btn>Start</button>
     </div>
 
   </div>
