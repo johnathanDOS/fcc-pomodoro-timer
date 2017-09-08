@@ -15,38 +15,48 @@ function getTime(userInput) {
 
 //work time countdown
 function workCountdown() {
+  time = document.getElementById('work-time').innerHTML * 60;
   if (workTime == undefined) {
     workTime = getTime(document.getElementById('work-time').innerHTML)
   }
   workTime.setSeconds(workTime.getSeconds() - 1)
   timeRemaining = workTime.toISOString().substr(14, 5)
   timeDisplay.innerHTML = timeRemaining
-  if (timeDisplay.innerHTML == "00:00:00") {
+  if (timeDisplay.innerHTML == "00:00") {
     working = false;
   } else {
     working = true;
+    $('.circle_animation').css('stroke-dashoffset', initialOffset-((i+1)*(initialOffset/time)));
+    i++
+    console.log(time)
   }
   if (working == false) {
-    workTime = getTime(document.getElementById('work-time').innerHTMl)
+    workTime = getTime(document.getElementById('work-time').innerHTML)
+    i=0;
   }
   console.log("working")
 }
 
 //break time countdown
 function breakCountdown() {
+  time = document.getElementById('break-time').innerHTML * 60;
   if (breakTime == undefined) {
     breakTime = getTime(document.getElementById('break-time').innerHTML)
   }
   breakTime.setSeconds(breakTime.getSeconds() - 1)
   timeRemaining = breakTime.toISOString().substr(14, 5)
   timeDisplay.innerHTML = timeRemaining
-  if (timeDisplay.innerHTML == "00:00:00") {
+  if (timeDisplay.innerHTML == "00:00") {
     working = true;
   } else {
     working = false;
+    $('.circle_animation').css('stroke-dashoffset', initialOffset-((i+1)*(initialOffset/time)));
+    i++
+    console.log(time)
   }
   if (working == true) {
     breakTime = getTime(document.getElementById('break-time').innerHTML)
+    i=0
   }
   console.log("taking a break")
 }
@@ -84,13 +94,6 @@ document.getElementById('work-id-plus').addEventListener("click", function () {
   }
 })
 
-document.getElementById('start-btn').addEventListener("click", function () {
-  if (timer) {
-    clearInterval(timer);
-  }
-  working = true;
-  timer = setInterval(runTimer, 1000)
-})
 
 //primary countdown function
 function runTimer() {
@@ -102,6 +105,13 @@ function runTimer() {
     }
   }
 }
+document.getElementById('start-btn').addEventListener("click", function () {
+  if (timer) {
+    clearInterval(timer);
+  }
+  working = true;
+  timer = setInterval(runTimer, 1000)
+})
 
 document.getElementById('reset-btn').addEventListener("click", function() {
   if (timer) {
@@ -110,24 +120,12 @@ document.getElementById('reset-btn').addEventListener("click", function() {
     console.log(timer);
   }
   timeDisplay.innerHTML = document.getElementById('work-time').innerHTML;
-  workTime = getTime(document.getElementById('work-time').innerHTML);
-  breakTime = getTime(document.getElementById('break-time').innerHTML);
+  workTime = null;
+  breakTime = null;
+  i = 0;
+  $(".circle_animation").css('stroke-dashoffset', initialOffset);
 })
 
-// circles
-var time = 60;
+var time;
 var initialOffset = '440';
-var i = 1
-
-/* Need initial run as interval hasn't yet occured... */
-$('.circle_animation').css('stroke-dashoffset', initialOffset-(1*(initialOffset/time)));
-
-var interval = setInterval(function() {
-		$('h2').text(i);
-		if (i == time) {
-      clearInterval(interval);
-			return;
-    }
-    $('.circle_animation').css('stroke-dashoffset', initialOffset-((i+1)*(initialOffset/time)));
-    i++;
-}, 1000);
+var i = 0
