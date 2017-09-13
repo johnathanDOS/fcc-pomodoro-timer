@@ -1,5 +1,6 @@
 body {
-  background-color: gray;
+  background-color: white;
+  font-family: arial;
 }
 
 .widget {
@@ -58,4 +59,43 @@ svg {
   stroke-dasharray: 440; /* this value is the pixel circumference of the circle */
   stroke-dashoffset: 440;
   transition: all 1s linear;
+}
+
+/*buttons*/
+.plus {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  background-color: white;
+  position: relative;
+}
+
+.minus {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  background-color: white;
+  position: relative;
+}
+
+
+.bar {
+  margin: 0 auto;
+  position: absolute;
+  background-color: green;
+}
+
+.horizontal {
+  width: 70%;
+  height: 20%;
+  left: 15%;
+  top: 40%;
+
+}
+
+.vertical {
+  width: 20%;
+  height: 70%;
+  left: 40%;
+  top: 15%;
 }

@@ -5,6 +5,7 @@ var breakTime;
 var timeRemaining;
 var working;
 let timer = null;
+var tone = new Audio('./sounds/tone.mp3');
 
 //create date object from integer input and return as HR:MIN:SEC string
 function getTime(userInput) {
@@ -23,6 +24,7 @@ function workCountdown() {
   timeRemaining = workTime.toISOString().substr(14, 5)
   timeDisplay.innerHTML = timeRemaining
   if (timeDisplay.innerHTML == "00:00") {
+    tone.play();
     working = false;
   } else {
     working = true;
@@ -35,6 +37,7 @@ function workCountdown() {
     i=0;
   }
   console.log("working")
+  document.getElementById('circle').style.stroke = "red"
 }
 
 //break time countdown
@@ -48,6 +51,7 @@ function breakCountdown() {
   timeDisplay.innerHTML = timeRemaining
   if (timeDisplay.innerHTML == "00:00") {
     working = true;
+    tone.play();
   } else {
     working = false;
     $('.circle_animation').css('stroke-dashoffset', initialOffset-((i+1)*(initialOffset/time)));
@@ -59,6 +63,7 @@ function breakCountdown() {
     i=0
   }
   console.log("taking a break")
+  document.getElementById('circle').style.stroke = "blue"
 }
 
 
