@@ -3,12 +3,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,900,400italic,700italic,900italic|Droid+Serif:400,700,400italic,700italic'
-          rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">      
     <link rel="stylesheet" href="./style.css">
     <title>FCC Pomodoro Timer - JDOS</title>
 </head>
 <body>
+
+  <!-- header container -->
+  <div class='header-container'>
+    Pomodoro Timer
+  </div>
 
   <!-- widget container -->
   <div class=widget>
@@ -18,7 +22,7 @@
 
       <!-- break time ui -->
       <div>
-        <p>Break Time</p><br>
+        <h4>Break Time</h4  >
         <button class='minus' id=break-id-minus>
           <div class='bar horizontal'></div>
         </button>
@@ -31,7 +35,7 @@
 
       <!-- work time ui -->
       <div>
-        <p>Work Time</p><br>
+        <h4>Work Time</h4>
         <button class='minus' id=work-id-minus>
           <div class='bar horizontal'></div>
         </button>
@@ -50,6 +54,9 @@
       <button class=action-btn id=reset-btn>Reset</button>
     </div>
 
+    <div class='label' id='label'>
+    </div>
+
     <div class=item>
       <!-- timer display -->
       <div class=timer id=timer-display>
@@ -58,10 +65,6 @@
         <circle id="circle" class="circle_animation" r="69.85699" cy="81" cx="81" stroke-width="8" stroke=red fill="none"/>
       </svg>
     </div>
-
-
-    <!-- playing with circles -->
-
   </div>
 
 <body>

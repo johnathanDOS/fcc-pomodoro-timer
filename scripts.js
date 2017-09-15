@@ -28,6 +28,7 @@ function workCountdown() {
     working = false;
   } else {
     working = true;
+    document.getElementById('label').innerHTML = 'Buckle down.'
     $('.circle_animation').css('stroke-dashoffset', initialOffset-((i+1)*(initialOffset/time)));
     i++
     console.log(time)
@@ -54,6 +55,7 @@ function breakCountdown() {
     tone.play();
   } else {
     working = false;
+    document.getElementById('label').innerHTML = 'Take a break!'
     $('.circle_animation').css('stroke-dashoffset', initialOffset-((i+1)*(initialOffset/time)));
     i++
     console.log(time)
